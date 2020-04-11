@@ -43,7 +43,10 @@ export default function App() {
       <h1>時報</h1>
       <p>このタブを開いておくと、{INTERVAL_SEC/MINUTE}分おきに現在時刻をお伝えします。</p>
       <p>次の時報は{Math.round((nextSayAt - nowDaySec)/MINUTE)}分後にお伝えします。</p>
-      <button onClick={() => sayDate(now)}>いま何時？</button>
+      <p><button onClick={() => sayDate(now)}>いま何時？</button></p>
+      <hr/>
+      <p>CodeSandbox: <a href="https://codesandbox.io/s/github/s2terminal/ziho" target="blank">https://codesandbox.io/s/github/s2terminal/ziho</a></p>
+      <p>GitHub: <a href="https://github.com/s2terminal/ziho" target="blank">https://github.com/s2terminal/ziho</a></p>
     </div>
   );
 }
