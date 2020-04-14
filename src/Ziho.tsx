@@ -1,8 +1,9 @@
 import * as React from "react";
 import "./styles.css";
 import { MINUTE, REFLESH_MSEC } from './config';
-import resetNextSayAt from './resetNextSayAt';
-import say from './speech';
+import resetNextSayAt from './functions/resetNextSayAt';
+import judgeSay from './functions/judgeSay';
+import say from './functions/speech';
 
 function sayDate(date: Date) {
   say(`現在${date.getHours()}時${date.getMinutes()}分です`);
@@ -22,7 +23,7 @@ export default function Ziho(props: { intervalSec: number }) {
   // 発言するか判定
   React.useEffect(() => {
     const calculatedNextSayAt = resetNextSayAt(props.intervalSec, nowDaySec);
-    if (nowDaySec >= nextSayAt) {
+    if (judgeSay(nowDaySec, nextSayAt)) {
       sayDate(now);
       setNextSayAt(calculatedNextSayAt);
     } else if (calculatedNextSayAt !== nextSayAt) {
