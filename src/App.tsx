@@ -13,6 +13,7 @@ export default function App() {
         このタブを開いておくと、
         <select value={intervalSec} onChange={(event) => setIntervalSec(Number(event.target.value))}>
           <option value={MINUTE*10}>10分</option>
+          <option value={MINUTE*12}>12分</option>
           <option value={MINUTE*15}>15分</option>
           <option value={MINUTE*20}>20分</option>
           <option value={MINUTE*30}>30分</option>
